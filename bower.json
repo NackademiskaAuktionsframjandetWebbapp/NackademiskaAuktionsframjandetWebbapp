@@ -1,0 +1,23 @@
+{
+  "name": "projekt",
+  "description": "",
+  "authors": [
+    "GK-LAPTOP\\Robin Gk <kallrobin92@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/kallrobin/NackademiskaAuktionsframjandetWebbapp",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.6.2",
+    "angular-animate": "^1.6.2",
+    "angular-bootstrap": "^2.5.0",
+    "angular-route": "^1.6.2",
+    "bootstrap": "^3.3.7"
+  }
+}

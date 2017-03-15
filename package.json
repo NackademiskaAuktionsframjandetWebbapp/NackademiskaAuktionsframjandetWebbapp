@@ -1,0 +1,22 @@
+{
+  "name": "projekt",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "lite-server",
+    "postinstall": "bower install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kallrobin/NackademiskaAuktionsframjandetWebbapp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kallrobin/NackademiskaAuktionsframjandetWebbapp/issues"
+  },
+  "homepage": "https://github.com/kallrobin/NackademiskaAuktionsframjandetWebbapp#readme",
+  "devDependencies": {
+    "lite-server": "^2.3.0"
+  }
+}
