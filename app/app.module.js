@@ -1,1 +1,1 @@
-angular.module("app", ["ui.bootstrap", "ngRoute"]);
+angular.module("app", ["ui.bootstrap", "ngRoute", "login"]);
