@@ -1,0 +1,34 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-offset-4 col-md-4">
+
+            <section id="Contact_details" class="text-center">
+
+
+                <form name="contactform" class="form-group" novalidate>
+
+                    <br><h4><strong>Logga in för att slutföra din beställning:</strong></h4><br>
+
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="E-post" ng-model="user.email"><br>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="password" id="password" name="password" placeholder="Lösenord" ng-model="user.password"><br>
+                    </div>
+
+
+                    <a class="btn btn-info" role="button" ng-click="login()">Logga in</a>
+                    <a class="btn btn-info" href="/">Avbryt</a><br><br><br>
+
+                    <h4>Om du inte har någon användare sedan tidigare:</h4><br>
+
+                    <a class="btn btn-info" role="button" href="/createlogin">Skapa ny användare</a><br><br>
+
+                </form>
+            </section>
+
+            <p class="text-danger">{{ text }}</p>
+        </div>
+    </div>
+</div>
