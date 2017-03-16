@@ -20,14 +20,17 @@
                         <strong>Auktionens sluttid:</strong> {{ auction.endTime}}<br><br>
                         <strong>Auktionens bud:</strong> {{ auction.price }} kr<br><br>
                         <strong>Auktionens acceptpris:</strong> {{ auction.buyNowPrice }} kr<br><br>
-                        <span id="prodesc">{{ auction.description }}</span>
+                        <span id="prodesc">{{ auction.description }}</span><br><br>
+                        <button ng-click="">Leverantör</button>
                     </td>
                 </tr>
             </tbody>
         </table>
 
         <br><br>
-        <button ng-click="auctionClickedInDetails(auction.id)">Tillbaka</button>
+        <button ng-click="auctionClickedInDetails(auction.id)">Tillbaka</button>&nbsp;
+        <button ng-click="">Buda</button>&nbsp;
+        <button ng-click="">Köp nu</button>
 
     </div>
 </div>
