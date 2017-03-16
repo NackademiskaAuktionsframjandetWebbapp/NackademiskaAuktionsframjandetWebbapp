@@ -50,7 +50,7 @@ public class DetailActivity extends AppCompatActivity {
         String price = priceFormat.format(auction.getPrice());
 
         nameView.setText(auction.getName());
-        priceView.setText(price);
+        priceView.setText(price + " SEK");
         Picasso.with(this).load(auction.getImageUrl()).into(imageView);
     }
     @Override
