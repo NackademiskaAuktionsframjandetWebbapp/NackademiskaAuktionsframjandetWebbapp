@@ -8,19 +8,37 @@
     tools:context="com.example.gustav.androidmenyer.DetailActivity"
     tools:showIn="@layout/activity_detail">
 
+    <ImageView
+        android:id="@+id/auctionImageViewDetail"
+        android:layout_width="133dp"
+        android:layout_height="169dp"
+        android:layout_marginLeft="36dp"
+        android:layout_marginTop="43dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/fotboll" />
+
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/auctionNameViewDetail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="8dp"
-        android:text="TextView"
+        android:layout_marginTop="43dp"
+        android:text="En alldeles ny fotboll"
+        android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.234" />
+        app:layout_constraintLeft_toRightOf="@+id/auctionImageViewDetail"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/auctionPriceViewDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:text="100 kr"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@+id/auctionNameViewDetail"
+        android:layout_marginLeft="-10dp"
+        app:layout_constraintLeft_toLeftOf="@+id/auctionNameViewDetail" />
+
 </android.support.constraint.ConstraintLayout>
