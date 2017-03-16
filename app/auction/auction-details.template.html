@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-offset-0 col-md-10">
+
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>Namn</th>
+                    <th>Bild</th>
+                    <th>Pris</th>
+                    <br>
+                    <th>Beskrivning</th>
+                    <th>Starttid</th>
+                    <th>Sluttid</th>
+                    <th>Köp-nu-pris</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                <tr ng-click="auctionClickedInDetails(auction.id)">
+                    <td>{{ auction.name }}</td>
+                    <td><img src="{{ auction.imageUrl }}"></td>
+                    <td>{{ auction.price }} kr</td>
+                    <td id="prodesc">{{ auction.description }}</td>
+                    <td>{{ auction.startTime }}</td>
+                    <td>{{ auction.endTime }}</td>
+                    <td>{{ auction.buyNowPrice }}</td>
+
+
+                </tr>
+
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+</div>

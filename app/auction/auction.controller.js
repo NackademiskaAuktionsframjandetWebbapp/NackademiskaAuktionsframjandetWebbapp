@@ -6,7 +6,7 @@ angular.module("auction").controller("auctionController", ["$scope", "auctionSer
     });
 
     $scope.auctionClicked = function (id) {
-        $location.path("/product/" + id);
+        $location.path("/auction/" + id);
     };
 
     auctionService.getCategories().then(function (response) {
