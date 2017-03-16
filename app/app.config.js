@@ -17,6 +17,10 @@ angular.module("app").config(["$routeProvider", "$locationProvider", function ($
             templateUrl: "app/auction/auction-details.template.html",
             controller: "auctionDetailsController"
         })
+        .when("/supplier/:supplierId", {
+            templateUrl: "app/supplier/supplier.template.html",
+            controller: "supplierController"
+        })
 
         .otherwise("/");
     $locationProvider.html5Mode(true);

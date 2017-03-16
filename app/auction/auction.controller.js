@@ -11,7 +11,5 @@ angular.module("auction").controller("auctionController", ["$scope", "auctionSer
 
     auctionService.getCategories().then(function (response) {
         $scope.categories = response.data;
-    })
-
-
+    });
 }]);

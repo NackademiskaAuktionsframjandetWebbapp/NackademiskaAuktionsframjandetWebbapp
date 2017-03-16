@@ -12,4 +12,8 @@ angular.module("auction").controller("auctionDetailsController", ["$scope", "$ro
 
         };
 
+        $scope.seeSupplier = function (id) {
+            $location.path("/supplier/" + id);
+        };
+
     }]);
