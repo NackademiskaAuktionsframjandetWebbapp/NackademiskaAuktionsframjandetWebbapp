@@ -26,7 +26,13 @@
                 </tr>
                 <tr>
                     <td><button ng-click="auctionClickedInDetails(auction.id)">Tillbaka</button></td>
-                    <td><button ng-click="">Buda</button>&nbsp;<button ng-click="">Köp nu</button></td>
+                    <td><button ng-click="showMe=true">Buda</button>&nbsp;<button ng-click="">Köp nu</button></td>
+                    <br>
+                    <td><br>
+                        <form class="form-group">
+                    <input type="text" ng-show="showMe"><br>
+                        </form>
+                    </td>
                 </tr>
             </tbody>
         </table>
