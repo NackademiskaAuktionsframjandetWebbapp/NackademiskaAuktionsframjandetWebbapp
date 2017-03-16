@@ -5,8 +5,8 @@
             <table class="table table-bordered">
                 <thead>
                 <tr>
-                    <th>Namn</th>
                     <th>Bild</th>
+                    <th>Namn</th>
                     <th>Pris</th>
                     <br>
                     <th>Beskrivning</th>
@@ -18,8 +18,8 @@
 
                 <tbody>
                 <tr ng-click="auctionClickedInDetails(auction.id)">
-                    <td>{{ auction.name }}</td>
                     <td><img src="{{ auction.imageUrl }}"></td>
+                    <td>{{ auction.name }}</td>
                     <td>{{ auction.price }} kr</td>
                     <td id="prodesc">{{ auction.description }}</td>
                     <td>{{ auction.startTime }}</td>
