@@ -3,7 +3,7 @@ angular.module("auction").factory("auctionService", ["$http", function ($http) {
         getAuctions: function () {
             return $http.get("http://nackademiska-api.azurewebsites.net/api/auction");
         },
-        getAuction: function (id) {
+        getAuctionByID: function (id) {
             return $http.get("http://nackademiska-api.azurewebsites.net/api/auction" + id);
         },
         getCategories: function () {
