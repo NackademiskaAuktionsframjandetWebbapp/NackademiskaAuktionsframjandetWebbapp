@@ -1,37 +1,33 @@
-<div class="container">
-    <div class="row">
-        <div class="col-md-offset-0 col-md-10">
+<div class="col-sm-8 text-left">
+    <div class="form-group">
 
-            <table class="table table-bordered">
-                <thead>
+        <table class="table">
+            <thead>
                 <tr>
-                    <th>Bild</th>
-                    <th>Namn</th>
-                    <th>Pris</th>
-                    <br>
-                    <th>Beskrivning</th>
-                    <th>Starttid</th>
-                    <th>Sluttid</th>
-                    <th>Köp-nu-pris</th>
+                    <th></th>
+                    <th></th>
                 </tr>
-                </thead>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
 
-                <tbody>
-                <tr ng-click="auctionClickedInDetails(auction.id)">
-                    <td><img src="{{ auction.imageUrl }}"></td>
-                    <td>{{ auction.name }}</td>
-                    <td>{{ auction.price }} kr</td>
-                    <td id="prodesc">{{ auction.description }}</td>
-                    <td>{{ auction.startTime }}</td>
-                    <td>{{ auction.endTime }}</td>
-                    <td>{{ auction.buyNowPrice }}</td>
-
-
+                        <img src="{{ auction.imageUrl }}" ng-click="auctionClicked(auction.id)" width="200px">
+                    </td>
+                    <td width="300px">
+                        <strong>{{ auction.name }}</strong><br><br>
+                        <strong>Auktionens starttid:</strong> {{ auction.startTime }}<br><br>
+                        <strong>Auktionens sluttid:</strong> {{ auction.endTime}}<br><br>
+                        <strong>Auktionens bud:</strong> {{ auction.price }} kr<br><br>
+                        <strong>Auktionens acceptpris:</strong> {{ auction.buyNowPrice }} kr<br><br>
+                        <span id="prodesc">{{ auction.description }}</span>
+                    </td>
                 </tr>
+            </tbody>
+        </table>
 
-                </tbody>
+        <br><br>
+        <button ng-click="auctionClickedInDetails(auction.id)">Tillbaka</button>
 
-            </table>
-        </div>
     </div>
 </div>
