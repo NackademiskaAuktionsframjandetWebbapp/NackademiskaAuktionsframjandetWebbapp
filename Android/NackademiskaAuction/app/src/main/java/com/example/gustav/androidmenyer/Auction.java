@@ -14,6 +14,12 @@ public class Auction implements Serializable {
     private String supplierId;
     private String id;
 
+    public Auction(String name, double price, String imageUrl) {
+        this.name = name;
+        this.price = price;
+        this.imageUrl = imageUrl;
+    }
+
     public String getName() {
         return name;
     }

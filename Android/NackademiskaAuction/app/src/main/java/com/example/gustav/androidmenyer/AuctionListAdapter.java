@@ -42,7 +42,7 @@ public class AuctionListAdapter extends ArrayAdapter<Auction> {
 
         auctionName.setText(auction.getName());
 
-        Locale swedish = new Locale("sv", "SWE");
+        Locale swedish = new Locale("sv", "SE");
         NumberFormat priceFormat = NumberFormat.getNumberInstance(swedish);
         String price = priceFormat.format(auction.getPrice());
         auctionPrice.setText(price);

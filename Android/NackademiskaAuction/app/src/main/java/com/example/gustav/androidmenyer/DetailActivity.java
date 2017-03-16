@@ -45,7 +45,7 @@ public class DetailActivity extends AppCompatActivity {
         TextView priceView = (TextView)  findViewById(R.id.auctionPriceViewDetail);
         ImageView imageView = (ImageView) findViewById(R.id.auctionImageViewDetail);
 
-        Locale swedish = new Locale("sv", "SWE");
+        Locale swedish = new Locale("sv", "SE");
         NumberFormat priceFormat = NumberFormat.getNumberInstance(swedish);
         String price = priceFormat.format(auction.getPrice());
 
