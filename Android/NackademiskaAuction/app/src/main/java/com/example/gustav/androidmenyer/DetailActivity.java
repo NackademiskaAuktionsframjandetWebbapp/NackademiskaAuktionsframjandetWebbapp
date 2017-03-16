@@ -70,7 +70,8 @@ public class DetailActivity extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         switch (id) {
             case R.id.action_about:
-                Toast toast = Toast.makeText(DetailActivity.this, "info om suppliers", Toast.LENGTH_SHORT);
+                Toast toast = Toast.makeText(DetailActivity.this, "info om suppliers", Toast.LENGTH_LONG
+                );
                 toast.show();
                 return true;
         }
