@@ -10,5 +10,6 @@ angular.module("auction").factory("auctionService", ["$http", function ($http) {
             return $http.get("http://nackademiska-api.azurewebsites.net/api/category");
         }
 
+
     }
 }]);
