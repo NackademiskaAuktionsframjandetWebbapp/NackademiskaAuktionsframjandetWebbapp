@@ -4,7 +4,11 @@ android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
     defaultConfig {
+<<<<<<< HEAD
         applicationId "com.auction.nackademin.nackademiskaauction"
+=======
+        applicationId "com.example.gustav.androidmenyer2"
+>>>>>>> API (Auctions) working
         minSdkVersion 21
         targetSdkVersion 25
         versionCode 1

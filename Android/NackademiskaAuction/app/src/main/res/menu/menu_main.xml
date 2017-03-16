@@ -1,10 +1,23 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+<<<<<<< HEAD
     tools:context="com.auction.nackademin.nackademiskaauction.MainActivity">
+=======
+    tools:context="com.example.gustav.androidmenyer.MainActivity">
+>>>>>>> API (Auctions) working
     <item
         android:id="@+id/action_settings"
         android:orderInCategory="100"
         android:title="@string/action_settings"
         app:showAsAction="never" />
+<<<<<<< HEAD
+=======
+    <item
+        android:id="@+id/action_about"
+        android:orderInCategory="90"
+        android:title="@string/action_about"
+        android:icon="@drawable/ic_action_about"
+        app:showAsAction="always" />
+>>>>>>> API (Auctions) working
 </menu>
