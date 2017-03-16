@@ -1,10 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<div class="row">
+    <h1>
+        <form>
+            <input type="text" ng-model="query">
+        </form>
+        <select ng-model="categorySelected" class="input-small" ng-options="category.name for category in categories">
+            <option value="">All</option>
+        </select>
 
-</body>
-</html>
+    </h1>
+    <div class="col-xs-8 col-md-1">
+        <a ng-repeat="auction in auctions | filter: {categoryId: categorySelected.id, name: query }"
+           href="#" class="thumbnail" ng-click="auctionClicked(auction.id)">
+            <img src= {{auction.imageUrl}} alt="...">
+
+        </a>
+    </div>
+</div>
