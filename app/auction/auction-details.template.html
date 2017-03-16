@@ -14,7 +14,7 @@
 
                         <img src="{{ auction.imageUrl }}" ng-click="auctionClicked(auction.id)" width="200px">
                     </td>
-                    <td width="300px">
+                    <td width="250px">
                         <strong>{{ auction.name }}</strong><br><br>
                         <strong>Auktionens starttid:</strong> {{ auction.startTime }}<br><br>
                         <strong>Auktionens sluttid:</strong> {{ auction.endTime}}<br><br>
@@ -26,13 +26,7 @@
                 </tr>
                 <tr>
                     <td><button ng-click="auctionClickedInDetails(auction.id)">Tillbaka</button></td>
-                    <td><button ng-click="showMe=true">Buda</button>&nbsp;<button ng-click="">Köp nu</button></td>
-                    <br>
-                    <td><br>
-                        <form class="form-group">
-                    <input type="text" ng-show="showMe"><br>
-                        </form>
-                    </td>
+                    <td width="350px"><input type="text" placeholder="Lägg ett bud"><button ng-click="">Skicka</button>&nbsp;<button ng-click="">Köp nu</button></td>
                 </tr>
             </tbody>
         </table>
