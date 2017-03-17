@@ -8,8 +8,10 @@ angular.module("auction").factory("auctionService", ["$http", function ($http) {
         },
         getCategories: function () {
             return $http.get("http://nackademiska-api.azurewebsites.net/api/category");
+        },
+        getBidsById: function (id) {
+            return $http.get("http://nackademiska-api.azurewebsites.net/api/bid/" + id);
         }
-
 
     }
 }]);

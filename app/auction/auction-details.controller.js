@@ -16,4 +16,10 @@ angular.module("auction").controller("auctionDetailsController", ["$scope", "$ro
             $location.path("/supplier/" + id);
         };
 
+        auctionService.getBidsById($routeParams.auctionId).then(function (response) {
+            $scope.bids = response.data;
+            console.log(response.data);
+        });
+
+
     }]);
