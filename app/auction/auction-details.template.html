@@ -9,8 +9,8 @@
                     </td>
                     <td width="250px">
                         <strong>{{ auction.name }}</strong><br><br>
-                        <strong>Auktionens starttid:</strong> {{ auction.startTime }}<br><br>
-                        <strong>Auktionens sluttid:</strong> {{ auction.endTime}}<br><br>
+                        <strong>Auktionens starttid:</strong> {{ auction.startTime | date:'yyyy-MM-dd HH:mm:ss'}}<br><br>
+                        <strong>Auktionens sluttid:</strong> {{ auction.endTime | date:'yyyy-MM-dd HH:mm:ss'}}<br><br>
                         <strong>Auktionens bud:</strong> {{ auction.price }} kr<br><br>
                         <strong>Auktionens acceptpris:</strong> {{ auction.buyNowPrice }} kr<br><br>
                         <span>{{ auction.description }}</span><br><br>
