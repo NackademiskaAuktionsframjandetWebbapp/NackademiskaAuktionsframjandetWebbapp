@@ -9,6 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,17 +28,38 @@ public class DetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detail);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        Button button = (Button) findViewById(R.id.button_seller);
+        button.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+             /*   TextView supplierText = (TextView) findViewById(R.id.supplierTextView);
+
+                Intent intent = new Intent();
+                intent.setAction(Intent.ACTION_SEND);
+                intent.putExtra(Intent.EXTRA_TEXT, supplierText.getText());
+                intent.setType("text/plain");
+                startActivity(intent);*/
+            }
+                                  }
+        );
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                TextView aboutText = (TextView) findViewById(R.id.action_about);
+
+                Intent intent = new Intent();
+                intent.setAction(Intent.ACTION_SEND);
+                intent.putExtra(Intent.EXTRA_TEXT, aboutText.getText());
+                intent.setType("text/plain");
+                startActivity(intent);
             }
         });
-
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
 
         Intent intent = getIntent();
         Auction auction = (Auction) intent.getSerializableExtra(MainActivity.AUCTION);
