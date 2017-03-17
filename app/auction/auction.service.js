@@ -14,7 +14,7 @@ angular.module("auction").factory("auctionService", ["$http", function ($http) {
         },
         newBid: function (bid) {
             return $http.post("http://nackademiska-api.azurewebsites.net/api/bid", bid).then(function (response) {
-                console.log(response.data);
+
 
             })
 

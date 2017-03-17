@@ -14,20 +14,7 @@ angular.module("auction").controller("auctionController", ["$scope", "auctionSer
             $scope.categories = response.data;
         });
 
-        $scope.newBid = function(){
-            var customerId = loginService.customerIdAfterLogin();
 
-            var bidInfo = {
-                auctionId: auction.id,
-                customerId: customerId,
-                bidPrice: $scope.bid.bidPrice
-            };
-
-            auctionService.newBid(bidInfo).then(function () {
-
-
-            });
-        };
 
 
     }]);

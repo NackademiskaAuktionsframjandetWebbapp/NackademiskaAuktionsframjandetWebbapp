@@ -25,6 +25,7 @@ angular.module("app").config(["$routeProvider", "$locationProvider", function ($
             templateUrl: "app/admin/admin.template.html",
             controller: "adminController"
         })
+
         .otherwise("/");
     $locationProvider.html5Mode(true);
 }]);

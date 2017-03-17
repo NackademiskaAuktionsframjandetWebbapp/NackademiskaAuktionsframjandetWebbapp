@@ -1,5 +1,5 @@
-angular.module("auction").controller("auctionDetailsController", ["$scope", "$routeParams", "$location", "auctionService",
-    function ($scope, $routeParams, $location, auctionService) {
+angular.module("auction").controller("auctionDetailsController", ["$scope", "$routeParams", "$location","$route", "auctionService","loginService",
+    function ($scope, $routeParams, $location,$route, auctionService, loginService) {
 
         auctionService.getAuctionByID($routeParams.auctionId).then(function (response) {
             $scope.auction = response.data;
@@ -18,8 +18,32 @@ angular.module("auction").controller("auctionDetailsController", ["$scope", "$ro
 
         auctionService.getBidsById($routeParams.auctionId).then(function (response) {
             $scope.bids = response.data;
-            console.log(response.data);
+
         });
+
+        $scope.newBid = function(){
+
+            if (!loginService.isLoggedIn()) {
+                $location.path("/login")
+            }
+            var customerId = loginService.customerIdAfterLogin();
+
+            var bidInfo = {
+                auctionId: $scope.auction.id,
+                customerId: customerId,
+                bidPrice: $scope.bid.bidPrice
+            };
+
+
+            auctionService.newBid(bidInfo).then(function successCallBack() {
+
+                $route.reload();
+
+
+            },function errorCallBack() {
+
+            });
+        };
 
 
     }]);
