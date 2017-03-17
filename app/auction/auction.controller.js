@@ -18,9 +18,10 @@ angular.module("auction").controller("auctionController", ["$scope", "auctionSer
             var customerId = loginService.customerIdAfterLogin();
 
             var bidInfo = {
-                auctionId: $scope.auction.id,
+                auctionId: auction.id,
                 customerId: customerId,
-                bidPrice: $scope.bid.bidPrice};
+                bidPrice: $scope.bid.bidPrice
+            };
 
             auctionService.newBid(bidInfo).then(function () {
 
