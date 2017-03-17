@@ -54,14 +54,14 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
-        android:text="Köp nu:"
+        android:text="@string/kop_nu"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintVertical_bias="0.015"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toRightOf="@+id/auctionImageView"
-        app:layout_constraintTop_toBottomOf="@+id/auctionHighestBidView" />
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/auctionHighestBidView"
+        app:layout_constraintVertical_bias="0.015" />
 
     <TextView
         android:id="@+id/auctionHighestBidView"
@@ -85,18 +85,18 @@
         android:id="@+id/highestBidTitle"
         android:layout_width="154dp"
         android:layout_height="20dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
         android:lines="2"
-        android:text="Högsta Bud:"
+        android:text="@string/hogsta_bud"
         android:textSize="18sp"
-        android:layout_marginRight="8dp"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintVertical_bias="0.015"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toRightOf="@+id/auctionImageView"
-        app:layout_constraintTop_toBottomOf="@+id/auctionNameView" />
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/auctionNameView"
+        app:layout_constraintVertical_bias="0.015" />
 
 </android.support.constraint.ConstraintLayout>

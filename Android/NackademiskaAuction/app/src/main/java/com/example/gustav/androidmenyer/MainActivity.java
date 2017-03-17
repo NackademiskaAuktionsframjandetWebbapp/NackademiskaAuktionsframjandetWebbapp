@@ -39,7 +39,6 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         Spinner spinner = (Spinner) findViewById(R.id.category_spinner);
-// Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.category_array, android.R.layout.simple_spinner_item);
 // Specify the layout to use when the list of choices appears
@@ -78,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setupAuctionList() {
-        AuctionListAdapter auctionAdapter = new AuctionListAdapter(this, R.layout.auction_list_item, auctions, bids);
+        AuctionListAdapter auctionAdapter = new AuctionListAdapter(this, R.layout.auction_list_item, auctions);
         ListView auctionListView = (ListView) findViewById(R.id.auctionListView);
         auctionListView.setAdapter(auctionAdapter);
 
