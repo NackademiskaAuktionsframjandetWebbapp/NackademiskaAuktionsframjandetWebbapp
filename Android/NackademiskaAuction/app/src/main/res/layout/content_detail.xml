@@ -16,7 +16,7 @@
         android:layout_marginTop="43dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/fotboll" />
+        app:srcCompat="@drawable/placeholder" />
 
     <TextView
         android:id="@+id/auctionNameViewDetail"
