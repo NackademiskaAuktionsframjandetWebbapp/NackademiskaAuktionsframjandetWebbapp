@@ -2,43 +2,37 @@
     <div class="form-group">
 
         <table class="table">
-            <thead>
+            <tbody>
                 <tr>
-                    <th></th>
-                    <th></th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td>
-
-                <img src="{{ auction.imageUrl }}" ng-click="auctionClicked(auction.id)" width="200px">
-            </td>
-            <td width="250px">
-                <strong>{{ auction.name }}</strong><br><br>
-                <strong>Auktionens starttid:</strong> {{ auction.startTime }}<br><br>
-                <strong>Auktionens sluttid:</strong> {{ auction.endTime}}<br><br>
-                <strong>Auktionens bud:</strong> {{ auction.price }} kr<br><br>
-                <strong>Auktionens acceptpris:</strong> {{ auction.buyNowPrice }} kr<br><br>
-                <span id="prodesc">{{ auction.description }}</span><br><br>
-                <a href="#" ng-click="seeSupplier(auction.supplierId)">Leverantör</a>
-            </td>
-        </tr>
-        <tr>
-            <td><button ng-click="auctionClickedInDetails(auction.id)">Tillbaka</button></td>
-            <td width="350px"><input type="text" placeholder="Lägg ett bud" ng-model="bid.bidPrice"><button ng-click="">Skicka</button>&nbsp;<button ng-click="">Köp nu</button></td>
-        </tr>
-
-        <tr>
-            <td><h4>Budhistorik:</h4></td>
-        <tr ng-repeat="bid in bids | orderBy : '-bidPrice'">
-                <td>
-                <strong>Bud:</strong> {{ bid.bidPrice}} kr<br>
-                <strong>Tidpunkt:</strong> {{ bid.dateTime | date:'yyyy-MM-dd HH:mm:ss'}}<br>
-                </td>
-        </tr>
-        </tr>
-        </tbody>
+                    <td>
+                        <img src="{{ auction.imageUrl }}" ng-click="auctionClicked(auction.id)" width="200px">
+                    </td>
+                    <td width="250px">
+                        <strong>{{ auction.name }}</strong><br><br>
+                        <strong>Auktionens starttid:</strong> {{ auction.startTime }}<br><br>
+                        <strong>Auktionens sluttid:</strong> {{ auction.endTime}}<br><br>
+                        <strong>Auktionens bud:</strong> {{ auction.price }} kr<br><br>
+                        <strong>Auktionens acceptpris:</strong> {{ auction.buyNowPrice }} kr<br><br>
+                        <span>{{ auction.description }}</span><br><br>
+                        <a href="#" ng-click="seeSupplier(auction.supplierId)">Leverantör</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td><button ng-click="auctionClickedInDetails(auction.id)">Tillbaka</button></td>
+                    <td width="350px"><input type="text" placeholder="Lägg ett bud" ng-model="bid.bidPrice"><button ng-click="">Skicka</button>&nbsp;<button ng-click="">Köp nu</button></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><h4>Budhistorik:</h4></td>
+                </tr>
+                <tr ng-repeat="bid in bids | orderBy : '-bidPrice'">
+                    <td></td>
+                    <td>
+                        <strong>Bud:</strong> {{ bid.bidPrice}} kr<br>
+                        <strong>Tidpunkt:</strong> {{ bid.dateTime | date:'yyyy-MM-dd HH:mm:ss'}}<br>
+                    </td>
+                </tr>
+            </tbody>
         </table>
 
     </div>
