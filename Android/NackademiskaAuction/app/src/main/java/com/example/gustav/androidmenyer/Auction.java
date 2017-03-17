@@ -14,10 +14,17 @@ public class Auction implements Serializable {
     private String supplierId;
     private String id;
 
-    public Auction(String name, double price, String imageUrl) {
+    public Auction(String name, double price, String imageUrl, String description, String startTime, String endTime,
+                   String categoryId, String supplierId, String id) {
         this.name = name;
         this.price = price;
         this.imageUrl = imageUrl;
+        this.description = description;
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.categoryId = categoryId;
+        this.supplierId = supplierId;
+        this.id = id;
     }
 
     public String getName() {

@@ -41,6 +41,7 @@ public class DetailActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         Auction auction = (Auction) intent.getSerializableExtra(MainActivity.AUCTION);
+        Bid bid = (Bid) intent.getSerializableExtra(MainActivity.BID);
 
         TextView nameView = (TextView) findViewById(R.id.auctionNameViewDetail);
         TextView priceView = (TextView)  findViewById(R.id.auctionPriceViewDetail);

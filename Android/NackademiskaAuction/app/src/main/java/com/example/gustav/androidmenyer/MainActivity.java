@@ -8,10 +8,8 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Spinner;
-
+import android.widget.Toast;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -24,8 +22,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
-    private String currency = "SEK";
+public class MainActivity extends AppCompatActivity {
 
     public static final String AUCTION = "AUCTION";
     private ArrayList<Auction> auctions = new ArrayList<>();
@@ -37,16 +34,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
-        Spinner spinner = (Spinner) findViewById(R.id.category_spinner);
-// Create an ArrayAdapter using the string array and a default spinner layout
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.category_array, android.R.layout.simple_spinner_item);
-// Specify the layout to use when the list of choices appears
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-// Apply the adapter to the spinner
-        spinner.setAdapter(adapter);
-
         RequestQueue requestQueue = Volley.newRequestQueue(this);
 
         JsonArrayRequest request = new JsonArrayRequest("http://nackademiska-api.azurewebsites.net/api/auction",
@@ -57,7 +44,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                             for (int i = 0; i < response.length(); i++) {
                                 JSONObject auction = (JSONObject) response.get(i);
                                 auctions.add(new Auction(auction.getString("name"),
-                                        auction.getDouble("buyNowPrice" ),
+                                        auction.getDouble("buyNowPrice"),
                                         auction.getString("imageUrl")));
                             }
                             setupAuctionList();
@@ -109,6 +96,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         //noinspection SimplifiableIfStatement
         switch (id) {
+            case R.id.action_settings:
+                Toast toast = Toast.makeText(MainActivity.this, "Du klickade settings", Toast.LENGTH_SHORT);
+                toast.show();
+                return true;
             case R.id.action_about:
                 Intent intent = new Intent(MainActivity.this, AboutActivity.class);
                 startActivity(intent);
@@ -116,16 +107,5 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        // An item was selected. You can retrieve the selected item using
-        // parent.getItemAtPosition(pos)
-    }
-
-    @Override
-    public void onNothingSelected(AdapterView<?> parent) {
-// Another interface callback
     }
 }
