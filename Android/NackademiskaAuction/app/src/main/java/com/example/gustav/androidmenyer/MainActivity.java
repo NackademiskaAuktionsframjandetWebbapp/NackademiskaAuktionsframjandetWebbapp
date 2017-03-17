@@ -8,10 +8,9 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Spinner;
 import android.widget.Toast;
+
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -28,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
     public static final String AUCTION = "AUCTION";
     private ArrayList<Auction> auctions = new ArrayList<>();
-    public static final String BID = "AUCTION";
+    public static final String BID = "BID";
     private ArrayList<Bid> bids = new ArrayList<>();
 
     @Override
@@ -37,14 +36,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        Spinner spinner = (Spinner) findViewById(R.id.category_spinner);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.category_array, android.R.layout.simple_spinner_item);
-// Specify the layout to use when the list of choices appears
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-// Apply the adapter to the spinner
-        spinner.setAdapter(adapter);
 
         RequestQueue requestQueue = Volley.newRequestQueue(this);
 
@@ -62,7 +53,8 @@ public class MainActivity extends AppCompatActivity {
                                         auction.getString("categoryId"), auction.getString("supplierId"),
                                         auction.getString("id")));
                             }
-                            setupAuctionList();
+
+
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -74,10 +66,49 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         requestQueue.add(request);
+
+
+        for (int i = 0; i < auctions.size(); i++) {
+
+            JsonArrayRequest requestBid = new JsonArrayRequest("http://nackademiska-api.azurewebsites.net/api/bid/"
+                    + auctions.get(i).getId().toString(),
+                    new Response.Listener<JSONArray>() {
+
+                        public void onResponse(JSONArray response) {
+                            try {
+                                for (int i = 0; i < response.length(); i++) {
+                                    JSONObject bid = (JSONObject) response.get(i);
+                                    bids.add(new Bid(bid.getString("auctionId"), bid.getString("customerId"),
+                                            bid.getDouble("bidPrice"), bid.getString("id"),
+                                            bid.getString("dateTime")));
+                                }
+                            } catch (
+                                    JSONException e)
+
+                            {
+                                e.printStackTrace();
+                            }
+                        }
+                    }, new Response.ErrorListener()
+
+            {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+
+                }
+            });
+
+            requestQueue.add(requestBid);
+            requestQueue.start();
+        }
+
+        setupAuctionList();
     }
 
     private void setupAuctionList() {
-        AuctionListAdapter auctionAdapter = new AuctionListAdapter(this, R.layout.auction_list_item, auctions);
+
+
+        AuctionListAdapter auctionAdapter = new AuctionListAdapter(this, R.layout.auction_list_item, auctions, bids);
         ListView auctionListView = (ListView) findViewById(R.id.auctionListView);
         auctionListView.setAdapter(auctionAdapter);
 
@@ -92,6 +123,10 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    public void getBids(String ID) {
+
     }
 
 
