@@ -5,10 +5,6 @@
             <tbody>
                 <tr>
                     <td>
-
-
-                    </td>
-                    <td>
                         <strong><h1>{{ supplier.companyName }}</h1></strong><br><br>
                         <strong>Telefonnummer: </strong> {{ supplier.phone }}<br><br>
                         <strong>E-post: </strong>{{ supplier.email}}<br><br>
@@ -21,7 +17,7 @@
             </tbody>
         </table>
 
-        <button ng-click="goBack()">Tillbaka</button>
+        <button ng-click="window.history.back();">Tillbaka</button>
 
     </div>
 </div>
