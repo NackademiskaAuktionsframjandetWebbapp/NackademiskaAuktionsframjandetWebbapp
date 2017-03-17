@@ -21,7 +21,10 @@ angular.module("app").config(["$routeProvider", "$locationProvider", function ($
             templateUrl: "app/supplier/supplier.template.html",
             controller: "supplierController"
         })
-
+        .when("/admin", {
+            templateUrl: "app/admin/admin.template.html",
+            controller: "adminController"
+        })
         .otherwise("/");
     $locationProvider.html5Mode(true);
 }]);
