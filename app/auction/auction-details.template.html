@@ -6,29 +6,29 @@
                 <tr>
                     <th></th>
                     <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>
 
-                        <img src="{{ auction.imageUrl }}" ng-click="auctionClicked(auction.id)" width="200px">
-                    </td>
-                    <td width="250px">
-                        <strong>{{ auction.name }}</strong><br><br>
-                        <strong>Auktionens starttid:</strong> {{ auction.startTime }}<br><br>
-                        <strong>Auktionens sluttid:</strong> {{ auction.endTime}}<br><br>
-                        <strong>Auktionens bud:</strong> {{ auction.price }} kr<br><br>
-                        <strong>Auktionens acceptpris:</strong> {{ auction.buyNowPrice }} kr<br><br>
-                        <span id="prodesc">{{ auction.description }}</span><br><br>
-                        <a href="#" ng-click="seeSupplier(auction.supplierId)">Leverantör</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td><button ng-click="auctionClickedInDetails(auction.id)">Tillbaka</button></td>
-                    <td width="350px"><input type="text" placeholder="Lägg ett bud"><button ng-click="">Skicka</button>&nbsp;<button ng-click="">Köp nu</button></td>
-                </tr>
-            </tbody>
+                <img src="{{ auction.imageUrl }}" ng-click="auctionClicked(auction.id)" width="200px">
+            </td>
+            <td width="250px">
+                <strong>{{ auction.name }}</strong><br><br>
+                <strong>Auktionens starttid:</strong> {{ auction.startTime }}<br><br>
+                <strong>Auktionens sluttid:</strong> {{ auction.endTime}}<br><br>
+                <strong>Auktionens bud:</strong> {{ auction.price }} kr<br><br>
+                <strong>Auktionens acceptpris:</strong> {{ auction.buyNowPrice }} kr<br><br>
+                <span id="prodesc">{{ auction.description }}</span><br><br>
+                <a href="#" ng-click="seeSupplier(auction.supplierId)">Leverantör</a>
+            </td>
+        </tr>
+        <tr>
+            <td><button ng-click="auctionClickedInDetails(auction.id)">Tillbaka</button></td>
+            <td width="350px"><input type="text" placeholder="Lägg ett bud"><button ng-click="">Skicka</button>&nbsp;<button ng-click="">Köp nu</button></td>
+        </tr>
+        </tbody>
         </table>
 
     </div>
