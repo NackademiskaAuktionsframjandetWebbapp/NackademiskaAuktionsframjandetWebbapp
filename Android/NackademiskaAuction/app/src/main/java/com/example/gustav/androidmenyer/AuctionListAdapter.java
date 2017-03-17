@@ -45,7 +45,7 @@ public class AuctionListAdapter extends ArrayAdapter<Auction> {
         Locale swedish = new Locale("sv", "SE");
         NumberFormat priceFormat = NumberFormat.getNumberInstance(swedish);
         String price = priceFormat.format(auction.getPrice());
-        auctionPrice.setText(price + " SEK");
+        auctionPrice.setText(price);
 
         Picasso.with(getContext()).load(auction.getImageUrl()).into(auctionImage);
 

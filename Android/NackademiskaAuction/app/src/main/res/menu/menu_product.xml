@@ -8,6 +8,6 @@
         android:id="@+id/action_about"
         android:orderInCategory="90"
         android:title="@string/action_about"
-        android:icon="@drawable/ic_action_about"
+        android:icon="@drawable/actionaboutbutton"
         app:showAsAction="always" />
 </menu>
