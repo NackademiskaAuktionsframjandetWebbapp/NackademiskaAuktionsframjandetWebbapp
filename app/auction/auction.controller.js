@@ -13,5 +13,24 @@ angular.module("auction").controller("auctionController", ["$scope", "auctionSer
             $scope.categories = response.data;
         });
 
+        $scope.newBid = function(){
+
+            var bidinfo = {
+
+                bidPrice: $scope.bid.bidPrice};
+
+            loginService.login(userinfo).then(function () {
+
+                console.log(loginService.isLoggedIn());
+
+                if(!loginService.isLoggedIn()){
+                    $scope.text = "Fel användarnamn eller lösenord. vänligen försök igen."
+                }else{
+                    $location.path("/cart");
+
+                }
+            });
+        };
+
 
     }]);
