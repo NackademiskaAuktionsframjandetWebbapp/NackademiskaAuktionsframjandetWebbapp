@@ -1,5 +1,6 @@
 angular.module("auction").controller("auctionController", ["$scope", "auctionService",
     "$location", function ($scope, auctionService, $location) {
+        $scope.bid = {};
 
         auctionService.getAuctions().then(function (response) {
             $scope.auctions = response.data;
@@ -14,21 +15,16 @@ angular.module("auction").controller("auctionController", ["$scope", "auctionSer
         });
 
         $scope.newBid = function(){
+            var customerId = loginService.customerIdAfterLogin();
 
-            var bidinfo = {
-
+            var bidInfo = {
+                auctionId: $scope.auction.id,
+                customerId: customerId,
                 bidPrice: $scope.bid.bidPrice};
 
-            loginService.login(userinfo).then(function () {
+            auctionService.newBid(bidInfo).then(function () {
 
-                console.log(loginService.isLoggedIn());
 
-                if(!loginService.isLoggedIn()){
-                    $scope.text = "Fel användarnamn eller lösenord. vänligen försök igen."
-                }else{
-                    $location.path("/cart");
-
-                }
             });
         };
 
