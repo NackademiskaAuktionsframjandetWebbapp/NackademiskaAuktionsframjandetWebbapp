@@ -1,3 +1,7 @@
-/**
- * Created by Sam on 17/03/2017.
- */
+angular.module("admin").factory("adminService", ["$http", function ($http) {
+    return {
+        getFinishedAuctions: function () {
+            return $http.get("http://nackademiska-api.azurewebsites.net/api/auction/completed")
+        }
+    }
+}]);
