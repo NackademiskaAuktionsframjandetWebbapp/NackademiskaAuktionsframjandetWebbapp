@@ -19,6 +19,7 @@ import java.text.NumberFormat;
 import java.util.Locale;
 
 public class DetailActivity extends AppCompatActivity {
+    private String currency = "SEK";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +51,7 @@ public class DetailActivity extends AppCompatActivity {
         String price = priceFormat.format(auction.getPrice());
 
         nameView.setText(auction.getName());
-        priceView.setText(price + " SEK");
+        priceView.setText(price + currency);
         Picasso.with(this).load(auction.getImageUrl()).into(imageView);
     }
     @Override

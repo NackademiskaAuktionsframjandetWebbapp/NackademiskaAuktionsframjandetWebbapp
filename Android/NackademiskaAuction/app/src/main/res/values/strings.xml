@@ -5,4 +5,13 @@
     <string name="title_activity_about">About</string>
     <string name="about_text">En auktions app(...)</string>
     <string name="title_activity_detail">Product</string>
+    <string-array name="category_array">
+        <item>Alla Kategorier</item>
+        <item>Möbler</item>
+        <item>Fordon</item>
+        <item>Kläder</item>
+        <item>Hushåll</item>
+        <item>Smycken</item>
+        <item>Badrum</item>
+    </string-array>
 </resources>
