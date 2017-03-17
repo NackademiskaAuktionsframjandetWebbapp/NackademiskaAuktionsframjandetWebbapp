@@ -11,6 +11,7 @@ angular.module("admin").controller("adminController", ["$q", "$scope", "adminSer
         });
         $q.all(promises).then(function (response) {
            for (var i = 0; i<finishedAuctions.length; i++){
+               console.log(response.data);
                finishedAuctions[i].bids = response[i].data;
            }
         });
