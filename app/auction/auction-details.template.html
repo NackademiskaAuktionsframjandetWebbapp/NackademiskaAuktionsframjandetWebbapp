@@ -26,7 +26,17 @@
         </tr>
         <tr>
             <td><button ng-click="auctionClickedInDetails(auction.id)">Tillbaka</button></td>
-            <td width="350px"><input type="text" placeholder="Lägg ett bud"><button ng-click="">Skicka</button>&nbsp;<button ng-click="">Köp nu</button></td>
+            <td width="350px"><input type="text" placeholder="Lägg ett bud" ng-model="bid.bidPrice"><button ng-click="">Skicka</button>&nbsp;<button ng-click="">Köp nu</button></td>
+        </tr>
+
+        <tr>
+            <td><h4>Budhistorik:</h4></td>
+        <tr ng-repeat="bid in bids | orderBy : '-bidPrice'">
+                <td>
+                <strong>Bud:</strong> {{ bid.bidPrice}} kr<br>
+                <strong>Tidpunkt:</strong> {{ bid.dateTime | date:'yyyy-MM-dd HH:mm:ss'}}<br>
+                </td>
+        </tr>
         </tr>
         </tbody>
         </table>

@@ -8,8 +8,18 @@ angular.module("auction").factory("auctionService", ["$http", function ($http) {
         },
         getCategories: function () {
             return $http.get("http://nackademiska-api.azurewebsites.net/api/category");
+        },
+        getBidsById: function (id) {
+            return $http.get("http://nackademiska-api.azurewebsites.net/api/bid/" + id);
+        },
+        newBid: function (bid) {
+            return $http.post("http://nackademiska-api.azurewebsites.net/api/bid", bid).then(function (response) {
+                console.log(response.data);
+
+            })
+
+        }
         }
 
 
-    }
 }]);
