@@ -45,5 +45,29 @@ angular.module("auction").controller("auctionDetailsController", ["$scope", "$ro
             });
         };
 
+        $scope.directBuy = function(buyNowPrice){
+
+            if (!loginService.isLoggedIn()) {
+                $location.path("/login")
+            }
+            var customerId = loginService.customerIdAfterLogin();
+
+            var bidInfo = {
+                auctionId: $scope.auction.id,
+                customerId: customerId,
+                bidPrice: buyNowPrice
+            };
+
+
+            auctionService.newBid(bidInfo).then(function successCallBack() {
+
+                $route.reload();
+
+
+            },function errorCallBack() {
+
+            });
+        };
+
 
     }]);

@@ -11,7 +11,6 @@
                         <strong>{{ auction.name }}</strong><br><br>
                         <strong>Auktionens starttid:</strong> {{ auction.startTime | date:'yyyy-MM-dd HH:mm:ss'}}<br><br>
                         <strong>Auktionens sluttid:</strong> {{ auction.endTime | date:'yyyy-MM-dd HH:mm:ss'}}<br><br>
-                        <strong>Auktionens bud:</strong> {{ auction.price }} kr<br><br>
                         <strong>Auktionens acceptpris:</strong> {{ auction.buyNowPrice }} kr<br><br>
                         <span>{{ auction.description }}</span><br><br>
                         <a href="#" ng-click="seeSupplier(auction.supplierId)">Leverantör</a>
@@ -19,7 +18,7 @@
                 </tr>
                 <tr>
                     <td></td>
-                    <td width="350px"><input type="text" placeholder="Lägg ett bud" ng-model="bid.bidPrice"><button role="button" ng-click="newBid()">Skicka</button>&nbsp;<button ng-click="">Köp nu</button></td>
+                    <td width="350px"><input type="text" placeholder="Lägg ett bud" ng-model="bid.bidPrice"><button role="button" ng-click="newBid()">Skicka</button>&nbsp;<button ng-click="directBuy(auction.buyNowPrice)">Köp nu</button></td>
                 </tr>
                 <tr>
                     <td></td>
