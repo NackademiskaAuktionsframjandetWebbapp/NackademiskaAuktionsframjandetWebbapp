@@ -26,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
 
     public static final String AUCTION = "AUCTION";
     private ArrayList<Auction> auctions = new ArrayList<>();
+    public static final String BID = "AUCTION";
+    private ArrayList<Bid> bids = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +47,10 @@ public class MainActivity extends AppCompatActivity {
                                 JSONObject auction = (JSONObject) response.get(i);
                                 auctions.add(new Auction(auction.getString("name"),
                                         auction.getDouble("buyNowPrice"),
-                                        auction.getString("imageUrl")));
+                                        auction.getString("imageUrl"), auction.getString("description"),
+                                        auction.getString("startTime"), auction.getString("endTime"),
+                                        auction.getString("categoryId"), auction.getString("supplierId"),
+                                        auction.getString("id")));
                             }
                             setupAuctionList();
                         } catch (JSONException e) {
@@ -62,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setupAuctionList() {
-        AuctionListAdapter auctionAdapter = new AuctionListAdapter(this, R.layout.auction_list_item, auctions);
+        AuctionListAdapter auctionAdapter = new AuctionListAdapter(this, R.layout.auction_list_item, auctions, bids);
         ListView auctionListView = (ListView) findViewById(R.id.auctionListView);
         auctionListView.setAdapter(auctionAdapter);
 

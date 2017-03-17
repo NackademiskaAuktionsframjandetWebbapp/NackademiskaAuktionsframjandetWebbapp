@@ -50,13 +50,13 @@ public class AuctionListAdapter extends ArrayAdapter<Auction> {
 
         Locale swedish = new Locale("sv", "SE");
         NumberFormat priceFormat = NumberFormat.getNumberInstance(swedish);
-        String price = priceFormat.format("Köp nu pris:\n" +auction.getPrice());
+        String price = priceFormat.format(auction.getPrice());
         auctionPrice.setText(price);
         if (bids != null) {
             for (int i = 0; i < bids.size(); i++) {
                 if (auctions.get(position).getId() == bids.get(i).getBidId()) {
                     String highestBid = String.valueOf(bids.get(i).getBidPrice());
-                    auctionBid.setText("Högsta bud:\n" + highestBid);
+                    auctionBid.setText(highestBid);
                     break;
                 }
             }
