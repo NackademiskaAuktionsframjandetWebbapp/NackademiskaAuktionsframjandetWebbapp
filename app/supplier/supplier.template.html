@@ -10,16 +10,18 @@
                     </td>
                     <td>
                         <strong><h1>{{ supplier.companyName }}</h1></strong><br><br>
-                        <strong>Telefonnummer:</strong> {{ supplier.phone }}<br><br>
-                        <strong>E-post:</strong> {{ supplier.email}}<br><br>
-                        <strong>Adress:</strong> {{ supplier.address}}<br><br>
-                        <strong>Postnummer:</strong> {{ supplier.postalCode }}<br><br>
-                        <strong>Stad:</strong>{{ supplier.city }}<br><br>
+                        <strong>Telefonnummer: </strong> {{ supplier.phone }}<br><br>
+                        <strong>E-post: </strong>{{ supplier.email}}<br><br>
+                        <strong>Adress: </strong>{{ supplier.address}}<br><br>
+                        <strong>Postnummer: </strong>{{ supplier.postalCode }}<br><br>
+                        <strong>Stad: </strong>{{ supplier.city }}<br><br>
                         <strong>Provision: </strong>{{ supplier.commission }}%<br><br>
                     </td>
                 </tr>
             </tbody>
-            </table>
+        </table>
+
+        <button ng-click="goBack()">Tillbaka</button>
 
     </div>
 </div>
