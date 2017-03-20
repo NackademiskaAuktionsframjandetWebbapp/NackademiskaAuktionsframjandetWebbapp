@@ -29,6 +29,7 @@ import java.util.Locale;
 public class AuctionListAdapter extends ArrayAdapter<Auction> {
 
     private ArrayList<Auction> auctions;
+    private String currency = "SEK";
 
     public AuctionListAdapter(@NonNull Context context, @LayoutRes int resource, @NonNull ArrayList<Auction> auctionObjects) {
         super(context, resource, auctionObjects);
@@ -58,12 +59,14 @@ public class AuctionListAdapter extends ArrayAdapter<Auction> {
         Locale swedish = new Locale("sv", "SE");
         NumberFormat priceFormat = NumberFormat.getNumberInstance(swedish);
         String price = priceFormat.format(auction.getPrice());
-        auctionPrice.setText(price);
-        if (auction.getHighestBid() == null){
+        String bidPrice;
+        auctionPrice.setText(price + " " + currency);
+        if (auction.getHighestBid() == 0){
             auctionBid.setText("Väntar på bud");
         }
         else {
-            auctionBid.setText(auction.getHighestBid());
+            bidPrice = priceFormat.format(auction.getHighestBid());
+            auctionBid.setText(bidPrice + " " + currency);
         }
 
         Picasso.with(getContext()).load(auction.getImageUrl()).into(auctionImage);
