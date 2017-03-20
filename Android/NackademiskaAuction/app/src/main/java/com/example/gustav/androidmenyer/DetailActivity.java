@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -32,13 +33,8 @@ public class DetailActivity extends AppCompatActivity {
 
                                       @Override
                                       public void onClick(View view) {
-                                    /*     TextView supplierText = (TextView) findViewById(R.id.supplierTextView);
-
-                                          Intent intent = new Intent();
-                                          intent.setAction(Intent.ACTION_SEND);
-                                          intent.putExtra(Intent.EXTRA_TEXT, supplierText.getText());
-                                          intent.setType("text/plain");
-                                          startActivity(intent);*/
+                                          Intent intent = new Intent(DetailActivity.this, SupplierActivity.class);
+                                          startActivity(intent);
                                       }
                                   }
         );

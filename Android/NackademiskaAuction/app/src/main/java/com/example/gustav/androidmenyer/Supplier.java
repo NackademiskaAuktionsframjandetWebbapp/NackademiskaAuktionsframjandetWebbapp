@@ -1,6 +1,8 @@
 package com.example.gustav.androidmenyer;
 
-public class Supplier {
+import java.io.Serializable;
+
+public class Supplier implements Serializable {
 
     private String id;
     private String companyName;
