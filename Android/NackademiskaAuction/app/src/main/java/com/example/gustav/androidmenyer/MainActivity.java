@@ -12,6 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
+
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -24,11 +25,11 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     public static final String AUCTION = "AUCTION";
     private ArrayList<Auction> auctions = new ArrayList<>();
-    public static final String BID = "AUCTION";
+    public static final String BID = "BID";
     private ArrayList<Bid> bids = new ArrayList<>();
 
     @Override
@@ -64,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
                                         auction.getString("id")));
                             }
                             setupAuctionList();
+
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -75,9 +77,17 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         requestQueue.add(request);
+
+        for (int i = 0; i < auctions.size(); i++) {
+            getBids(requestQueue, auctions.get(i).getId());
+        }
+        setupAuctionList();
+
     }
 
     private void setupAuctionList() {
+
+
         AuctionListAdapter auctionAdapter = new AuctionListAdapter(this, R.layout.auction_list_item, auctions, bids);
         ListView auctionListView = (ListView) findViewById(R.id.auctionListView);
         auctionListView.setAdapter(auctionAdapter);
@@ -93,6 +103,37 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    public void getBids(RequestQueue requestQueue, String ID) {
+        JsonArrayRequest requestBid = new JsonArrayRequest("http://nackademiska-api.azurewebsites.net/api/bid/" + ID,
+                new Response.Listener<JSONArray>() {
+
+                    public void onResponse(JSONArray response) {
+                        try {
+                            for (int i = 0; i < response.length(); i++) {
+                                JSONObject bid = (JSONObject) response.get(i);
+                                bids.add(new Bid(bid.getString("auctionId"), bid.getString("customerId"),
+                                        bid.getDouble("bidPrice"), bid.getString("id"),
+                                        bid.getString("dateTime")));
+                            }
+                        } catch (
+                                JSONException e)
+
+                        {
+                            e.printStackTrace();
+                        }
+                    }
+                }, new Response.ErrorListener()
+
+        {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        });
+
+        requestQueue.add(requestBid);
     }
 
 
@@ -119,5 +160,15 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
     }
 }

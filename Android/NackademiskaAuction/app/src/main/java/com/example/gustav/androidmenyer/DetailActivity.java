@@ -48,7 +48,7 @@ public class DetailActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                TextView aboutText = (TextView) findViewById(R.id.action_about);
+                TextView aboutText = (TextView) findViewById(R.id.aboutTextView);
 
                 Intent intent = new Intent();
                 intent.setAction(Intent.ACTION_SEND);
@@ -57,7 +57,6 @@ public class DetailActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
 

@@ -11,7 +11,16 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.Volley;
 import com.squareup.picasso.Picasso;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.text.NumberFormat;
 import java.util.ArrayList;
@@ -22,12 +31,15 @@ public class AuctionListAdapter extends ArrayAdapter<Auction> {
     private ArrayList<Auction> auctions;
     private ArrayList<Bid> bids;
 
-    public AuctionListAdapter(@NonNull Context context, @LayoutRes int resource, @NonNull ArrayList<Auction> auctionObjects, @NonNull ArrayList<Bid> bidObjects) {
+    public AuctionListAdapter(@NonNull Context context, @LayoutRes int resource, @NonNull ArrayList<Auction> auctionObjects, ArrayList<Bid> bidObjects) {
         super(context, resource, auctionObjects);
 
         auctions = auctionObjects;
         bids = bidObjects;
+
     }
+
+
 
     @NonNull
     @Override
