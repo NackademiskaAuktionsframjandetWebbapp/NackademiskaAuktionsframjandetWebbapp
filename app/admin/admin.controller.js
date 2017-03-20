@@ -6,6 +6,7 @@ angular.module("admin").controller("adminController", ["$q", "$scope", "adminSer
     var totalInMonth;
     var monthExists = false;
 
+
     adminService.getFinishedAuctions().then(function (response) {
         finishedAuctions = response.data;
         var promises = [];
@@ -20,6 +21,7 @@ angular.module("admin").controller("adminController", ["$q", "$scope", "adminSer
                totalInMonth = {monthAndYear: finishedAuctions[i].endTime.substring(0,7), total: finishedAuctions[i].highestBid};
                console.log(totalInMonth);
                monthExists = false;
+
                for (var i = 0; i<totalsByMonth.length; i++){
                    if (totalInMonth.monthAndYear == totalsByMonth[i].monthAndYear){
                        totalsByMonth.total += totalInMonth.total;
@@ -42,4 +44,5 @@ angular.module("admin").controller("adminController", ["$q", "$scope", "adminSer
         $scope.auctions = finishedAuctions;
         console.log($scope.auctions[0].bids);
     });
+
 }]);

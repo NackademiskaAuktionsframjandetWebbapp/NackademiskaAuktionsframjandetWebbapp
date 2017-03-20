@@ -23,6 +23,7 @@ angular.module("login").factory("loginService",["$http", function ($http) {
 
         },
         isLoggedIn: function () {
+            console.log(isLoggedIn);
             return isLoggedIn;
 
         },
