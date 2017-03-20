@@ -162,6 +162,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         return super.onOptionsItemSelected(item);
     }
 
+    //spinner on selected.
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
