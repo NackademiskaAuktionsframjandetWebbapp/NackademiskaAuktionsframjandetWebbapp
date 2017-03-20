@@ -14,16 +14,17 @@
                 <tr>
                     <td>
 
+
                     </td>
                     <td>
-               <!-- <tr ng-repeat="auction in auctions">
-                    <td></td>
+                <tr ng-repeat="month in totalsByMonth">
+                    <td>{{month.monthAndYear + " " + month.total}} </td>
                     <td>
                     </td>
-                    <td><strong>{{auction.endTime | date: "MMMM"}} </strong> {{auction.highestBid}} kr</td>
+                    <!--<td><strong>{{auction.endTime |  date: "MMMM"}}</strong> {{auction.highestBid}}</td>-->
                 </tr>
                     </td>
-                </tr>-->
+                </tr>
 
                 </tbody>
             </table>
