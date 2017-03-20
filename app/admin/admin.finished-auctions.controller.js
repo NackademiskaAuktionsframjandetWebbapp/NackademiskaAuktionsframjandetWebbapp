@@ -1,5 +1,5 @@
-angular.module("admin").controller("finishedAuctionsController", ["$scope", "$q", "adminService", "supplierService",
-    function ($scope, $q, adminService, supplierService) {
+angular.module("admin").controller("finishedAuctionsController", ["$scope", "$q", "adminService", "supplierService", "auctionService",
+    function ($scope, $q, adminService, supplierService, auctionService) {
         adminService.getFinishedAuctions().then(function (response) {
             finishedAuctions = response.data;
             var promises = [];
@@ -13,6 +13,17 @@ angular.module("admin").controller("finishedAuctionsController", ["$scope", "$q"
                     //finishedAuctions[i].profit = finishedAuctions[i].
                     console.log(finishedAuctions[i].supplierName);
                 }
+                promises = [];
+                angular.forEach(finishedAuctions, function (auction) {
+                    promises.push(auctionService.getBidsById(auction.id))
+                });
+                $q.all(promises).then(function (response) {
+                    for (i = 0; i<finishedAuctions.length; i++){
+                        bids = response[i].data;
+                        finishedAuctions[i].highestBid = bids[bids.length-1].bidPrice;
+                        finishedAuctions[i].profit = (finishedAuctions[i].highestBid * (finishedAuctions[i].supplierPercent));
+                    }
+                })
 
 
             });

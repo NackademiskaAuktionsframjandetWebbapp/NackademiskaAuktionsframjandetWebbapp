@@ -10,18 +10,18 @@
             </tr>
             </thead>
             <tbody>
-            <tr ng-repeat="auction in auctions | filter: {categoryId: categorySelected.id, name: query }">
+            <tr ng-repeat="auction in auctions">
                 <td>
                     <strong>{{ auction.name }}</strong><br><br>
                     <img src="{{ auction.imageUrl }}" ng-click="auctionClicked(auction.id)" width="200px">
                 </td>
                 <td width="300px">
                     <br><br>
-                    <strong>Auktionens starttid:</strong> {{ time(auction.startTime) }}<br><br>
-                    <strong>Auktionens sluttid:</strong> {{time(auction.endTime)}}<br><br>
-                    <strong>Auktionens acceptpris:</strong> {{ auction.buyNowPrice }} kr <br>
-                    <strong>supplier name:</strong> {{auction.supplierName}}<br><br>
-                    <strong>percent:</strong> {{ auction.supplierPercent }}<br><br>
+
+                    <strong>Auktionens sluttid:</strong> {{auction.endTime | date}}<br><br>
+                    <strong>Sold for:</strong> {{ auction.highestBid }} kr <br><br>
+                    <strong>Supplier name:</strong> {{auction.supplierName}}<br><br>
+                    <strong>Money:</strong> {{ auction.profit }}<br><br>
                 </td>
             </tr>
 
