@@ -72,7 +72,9 @@ public class DetailActivity extends AppCompatActivity {
                         "\n" + "Start tid: " + auction.getStartTime().toString() +
                         "\n" + "Slut tid: " + auction.getEndTime().toString() +
                         "\n" + "Köp nu pris: " + auction.getPrice());
-                //    "\n"+"Köp nu pris: "+auction.getHighestBid());
+                       // "\n"+"Högst bud: "+auction.getHighestBid());
+
+
                 intent.setType("text/plain");
                 startActivity(intent);
             }
