@@ -1,0 +1,34 @@
+<div class="col-sm-8 text-left">
+    <div class="form-group">
+
+        <a class="btn btn-default" role="button" href="/admin">Se försäljningsrapport</a><br><br>
+
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="auction in auctions">
+                <td>
+                    <strong>{{ auction.name }}</strong><br><br>
+                    <img src="{{ auction.imageUrl }}" ng-click="auctionClicked(auction.id)" width="200px">
+                </td>
+                <td width="300px">
+                    <br><br>
+
+                    <strong>Auktionens sluttid:</strong> {{auction.endTime | date}}<br><br>
+                    <strong>Såld för:</strong> {{ auction.highestBid }} kr <br><br>
+                    <strong>Leverantörsnamn:</strong> {{auction.supplierName}}<br><br>
+                    <strong>Provision i kr:</strong> {{ auction.profit }}<br><br>
+                </td>
+            </tr>
+
+            </tbody>
+        </table>
+
+    </div>
+</div>

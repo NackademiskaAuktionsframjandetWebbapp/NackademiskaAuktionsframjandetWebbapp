@@ -38,6 +38,7 @@ public class DetailActivity extends AppCompatActivity {
                                       }
                                   }
         );
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 
