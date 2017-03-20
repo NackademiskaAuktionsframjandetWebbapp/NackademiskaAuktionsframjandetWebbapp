@@ -56,7 +56,7 @@ public class DetailActivity extends AppCompatActivity {
         ImageView imageView = (ImageView) findViewById(R.id.auctionImageViewDetail);
 
         Locale swedish = new Locale("sv", "SE");
-        NumberFormat priceFormat = NumberFormat.getNumberInstance(swedish);
+        final NumberFormat priceFormat = NumberFormat.getNumberInstance(swedish);
         String price = priceFormat.format(auction.getPrice());
         String bidPrice = "";
         nameView.setText(auction.getName());
@@ -83,8 +83,8 @@ public class DetailActivity extends AppCompatActivity {
                         "\n" + "Produkt namn: " + auction.getName().toString() +
                         "\n" + "Start tid: " + auction.getStartTime().toString() +
                         "\n" + "Slut tid: " + auction.getEndTime().toString() +
-                        "\n" + "Högst bud: " + auction.getHighestBid() + " " + currency +
-                        "\n" + "Köp nu pris: " + auction.getPrice() + " " + currency);
+                        "\n" + "Högst bud: " + priceFormat.format(auction.getHighestBid()) + " " + currency +
+                        "\n" + "Köp nu pris: " + priceFormat.format(auction.getPrice()) + " " + currency);
 
 
 
