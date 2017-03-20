@@ -20,7 +20,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="auction in auctions | filter: {categoryId: categorySelected.id, name: query }">
+                <tr ng-repeat="auction in auctions | filter: {categoryId: categorySelected.id, name: query} ">
                     <td>
                         <strong>{{ auction.name }}</strong><br><br>
                         <img src="{{ auction.imageUrl }}" ng-click="auctionClicked(auction.id)" width="200px">

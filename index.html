@@ -58,9 +58,8 @@
       				<li><a href="/">Hem</a></li>
         			<li><a href="/">Auktionsobjekt</a></li>
          			<li ng-hide="isLoggedIn()"><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Logga in</a></li>
-         			<li ng-show="isLoggedIn()"><a href="#">Välkommen {{userFirstName}}!</a></li>
+         			<li ng-show="isLoggedIn()"><a href="#">Välkommen {{firstname}}!</a></li>
          			<li ng-show="isLoggedIn()"><a href="#" ng-click="logout()"><span class="glyphicon glyphicon-log-in"></span> Logga ut</a></li>
-					<li><a href="/admin">Admin</a></li>
 					<li><a href="/admin2">Admin</a></li>
       			</ul>
     		</div>
