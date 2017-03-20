@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                                         auction.getString("categoryId"), auction.getString("supplierId"),
                                         auction.getString("id")));
                             }
-
+                            setupAuctionList();
 
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -78,42 +78,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         });
         requestQueue.add(request);
 
-
         for (int i = 0; i < auctions.size(); i++) {
-
-            JsonArrayRequest requestBid = new JsonArrayRequest("http://nackademiska-api.azurewebsites.net/api/bid/"
-                    + auctions.get(i).getId().toString(),
-                    new Response.Listener<JSONArray>() {
-
-                        public void onResponse(JSONArray response) {
-                            try {
-                                for (int i = 0; i < response.length(); i++) {
-                                    JSONObject bid = (JSONObject) response.get(i);
-                                    bids.add(new Bid(bid.getString("auctionId"), bid.getString("customerId"),
-                                            bid.getDouble("bidPrice"), bid.getString("id"),
-                                            bid.getString("dateTime")));
-                                }
-                            } catch (
-                                    JSONException e)
-
-                            {
-                                e.printStackTrace();
-                            }
-                        }
-                    }, new Response.ErrorListener()
-
-            {
-                @Override
-                public void onErrorResponse(VolleyError error) {
-
-                }
-            });
-
-            requestQueue.add(requestBid);
-            requestQueue.start();
+            getBids(requestQueue, auctions.get(i).getId());
         }
-
         setupAuctionList();
+
     }
 
     private void setupAuctionList() {
@@ -136,8 +105,35 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         });
     }
 
-    public void getBids(String ID) {
+    public void getBids(RequestQueue requestQueue, String ID) {
+        JsonArrayRequest requestBid = new JsonArrayRequest("http://nackademiska-api.azurewebsites.net/api/bid/" + ID,
+                new Response.Listener<JSONArray>() {
 
+                    public void onResponse(JSONArray response) {
+                        try {
+                            for (int i = 0; i < response.length(); i++) {
+                                JSONObject bid = (JSONObject) response.get(i);
+                                bids.add(new Bid(bid.getString("auctionId"), bid.getString("customerId"),
+                                        bid.getDouble("bidPrice"), bid.getString("id"),
+                                        bid.getString("dateTime")));
+                            }
+                        } catch (
+                                JSONException e)
+
+                        {
+                            e.printStackTrace();
+                        }
+                    }
+                }, new Response.ErrorListener()
+
+        {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        });
+
+        requestQueue.add(requestBid);
     }
 
 
