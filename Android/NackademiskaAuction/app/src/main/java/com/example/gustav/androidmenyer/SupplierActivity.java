@@ -1,11 +1,13 @@
 package com.example.gustav.androidmenyer;
 
 import android.content.Intent;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import com.android.volley.RequestQueue;
@@ -47,10 +49,13 @@ public class SupplierActivity extends AppCompatActivity {
             @Override
             public void onResponse(JSONObject response) {
                 try {
-                    supplierName.setText(response.getString("name"));
-
+                    supplierName.setText(response.getString("companyName"));
+                    Snackbar snack = Snackbar.make(findViewById(R.id.textViewCompany_name),"try", Snackbar.LENGTH_SHORT);
+                    snack.show();
                 } catch (JSONException e) {
                     e.printStackTrace();
+                    Snackbar snack = Snackbar.make(findViewById(R.id.textViewCompany_name),"Catch", Snackbar.LENGTH_SHORT);
+                    snack.show();
                 }
             }
         }, new Response.ErrorListener() {
