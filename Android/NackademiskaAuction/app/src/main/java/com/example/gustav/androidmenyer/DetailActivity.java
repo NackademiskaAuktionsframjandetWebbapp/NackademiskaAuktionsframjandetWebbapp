@@ -18,7 +18,9 @@ import java.text.NumberFormat;
 import java.util.Locale;
 
 public class DetailActivity extends AppCompatActivity {
+    public static final String SUPPLIER_ID = "SUPPLIER_ID";
     private String currency = "SEK";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,12 +28,15 @@ public class DetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detail);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        Intent intent = getIntent();
+        final Auction auction = (Auction) intent.getSerializableExtra(MainActivity.AUCTION);
         Button button = (Button) findViewById(R.id.button_seller);
         button.setOnClickListener(new View.OnClickListener() {
 
                                       @Override
                                       public void onClick(View view) {
                                           Intent intent = new Intent(DetailActivity.this, SupplierActivity.class);
+                                          intent.putExtra(SUPPLIER_ID, auction.getSupplierId());
                                           startActivity(intent);
                                       }
                                   }
@@ -41,8 +46,8 @@ public class DetailActivity extends AppCompatActivity {
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 
 
-        Intent intent = getIntent();
-        final Auction auction = (Auction) intent.getSerializableExtra(MainActivity.AUCTION);
+
+
 
         TextView nameView = (TextView) findViewById(R.id.auctionNameViewDetail);
         TextView priceView = (TextView) findViewById(R.id.auctionPriceViewDetail);
