@@ -13,6 +13,12 @@ angular.module("auction").controller("auctionController", ["$scope", "auctionSer
         auctionService.getCategories().then(function (response) {
             $scope.categories = response.data;
         });
+        $scope.time = function (data) {
+            var parts = data.split("T");
+            var time = parts[1].split(":");
+            return parts[0] + " " + time[0] + ":" + time[1];
+        }
+
 
 
 
