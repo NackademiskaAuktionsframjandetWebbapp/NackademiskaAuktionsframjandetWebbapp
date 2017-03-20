@@ -28,7 +28,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     public static final String AUCTION = "AUCTION";
-    private ArrayList<Auction> auctions = new ArrayList<>();
+    private ArrayList<com.example.gustav.androidmenyer.Auction> auctions = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
