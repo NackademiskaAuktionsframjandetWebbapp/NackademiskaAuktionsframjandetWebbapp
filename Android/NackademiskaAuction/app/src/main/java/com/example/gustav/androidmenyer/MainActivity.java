@@ -29,8 +29,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     public static final String AUCTION = "AUCTION";
     private ArrayList<Auction> auctions = new ArrayList<>();
-    public static final String BID = "BID";
-    private ArrayList<Bid> bids = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +46,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 // Apply the adapter to the spinner
         spinner.setAdapter(adapter);
 
-        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        final RequestQueue requestQueue = Volley.newRequestQueue(this);
 
         JsonArrayRequest request = new JsonArrayRequest("http://nackademiska-api.azurewebsites.net/api/auction",
                 new Response.Listener<JSONArray>() {
@@ -64,6 +62,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                                         auction.getString("categoryId"), auction.getString("supplierId"),
                                         auction.getString("id")));
                             }
+                            for (int i = 0; i < auctions.size(); i++) {
+                                getBids(requestQueue, auctions.get(i).getId());
+                            }
                             setupAuctionList();
 
                         } catch (JSONException e) {
@@ -73,22 +74,17 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-
+                System.out.print("Failed response on auction");
             }
         });
         requestQueue.add(request);
-
-        for (int i = 0; i < auctions.size(); i++) {
-            getBids(requestQueue, auctions.get(i).getId());
-        }
-        setupAuctionList();
 
     }
 
     private void setupAuctionList() {
 
 
-        AuctionListAdapter auctionAdapter = new AuctionListAdapter(this, R.layout.auction_list_item, auctions, bids);
+        AuctionListAdapter auctionAdapter = new AuctionListAdapter(this, R.layout.auction_list_item, auctions);
         ListView auctionListView = (ListView) findViewById(R.id.auctionListView);
         auctionListView.setAdapter(auctionAdapter);
 
@@ -105,17 +101,18 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         });
     }
 
-    public void getBids(RequestQueue requestQueue, String ID) {
+    public void getBids(RequestQueue requestQueue, final String ID) {
+
         JsonArrayRequest requestBid = new JsonArrayRequest("http://nackademiska-api.azurewebsites.net/api/bid/" + ID,
                 new Response.Listener<JSONArray>() {
 
                     public void onResponse(JSONArray response) {
                         try {
-                            for (int i = 0; i < response.length(); i++) {
-                                JSONObject bid = (JSONObject) response.get(i);
-                                bids.add(new Bid(bid.getString("auctionId"), bid.getString("customerId"),
-                                        bid.getDouble("bidPrice"), bid.getString("id"),
-                                        bid.getString("dateTime")));
+                            JSONObject bid = (JSONObject)response.get(response.length()-1);
+                            for (int i = 0; i < auctions.size(); i++) {
+                                if (auctions.get(i).getId() == ID) {
+                                    auctions.get(i).setHighestBid(bid.getString("bidPrice"));
+                                }
                             }
                         } catch (
                                 JSONException e)
@@ -129,7 +126,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         {
             @Override
             public void onErrorResponse(VolleyError error) {
-
+                System.out.print("Failed response on bid");
             }
         });
 
