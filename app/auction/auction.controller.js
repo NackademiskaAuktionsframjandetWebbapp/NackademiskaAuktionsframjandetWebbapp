@@ -1,9 +1,28 @@
-angular.module("auction").controller("auctionController", ["$scope", "auctionService",
-    "$location", function ($scope, auctionService, $location) {
+angular.module("auction").controller("auctionController", ["$scope", "$q", "auctionService",
+    "$location", function ($scope, $q, auctionService, $location) {
         $scope.bid = {};
+        var auctions = [];
+        var bids = [];
 
         auctionService.getAuctions().then(function (response) {
-            $scope.auctions = response.data;
+            auctions = response.data;
+            var promises = [];
+            angular.forEach(auctions, function (auction) {
+                promises.push(auctionService.getBidsById(auction.id));
+            });
+            $q.all(promises).then(function (response) {
+                for (var i = 0; i<auctions.length; i++){
+                    bids = response[i].data;
+                    console.log(bids);
+                    if (bids.length > 0){
+                        auctions[i].highestBid = bids[bids.length-1].bidPrice;
+                    }
+
+                }
+
+
+            });
+            $scope.auctions = auctions;
         });
 
         $scope.auctionClicked = function (id) {
