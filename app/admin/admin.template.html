@@ -20,8 +20,8 @@
                 <tr ng-repeat="auction in auctions">
                     <td></td>
                     <td>
-                        <strong>Bud:</strong> {{auction.bids[auction.bids.length-1]}} kr<br>
                     </td>
+                    <td><strong>{{auction.endTime |  date: "MMMM"}}</strong> {{auction.highestBid}}</td>
                 </tr>
                     </td>
                 </tr>
