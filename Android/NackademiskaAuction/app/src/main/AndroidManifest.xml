@@ -39,6 +39,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.gustav.androidmenyer.MainActivity" />
         </activity>
+        <activity android:name=".SupplierActivity"></activity>
     </application>
 
 </manifest>
