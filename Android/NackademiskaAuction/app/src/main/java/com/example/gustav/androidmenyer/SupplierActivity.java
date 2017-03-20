@@ -64,7 +64,7 @@ public class SupplierActivity extends AppCompatActivity {
             }
         });
         requestQueue.add(request);
-
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
 
