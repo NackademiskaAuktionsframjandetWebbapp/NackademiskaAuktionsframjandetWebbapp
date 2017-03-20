@@ -13,6 +13,7 @@ public class Auction implements Serializable {
     private String categoryId;
     private String supplierId;
     private String id;
+    private String highestBid;
 
     public Auction(String name, double price, String imageUrl, String description, String startTime, String endTime,
                    String categoryId, String supplierId, String id) {
@@ -61,5 +62,13 @@ public class Auction implements Serializable {
 
     public String getId() {
         return id;
+    }
+
+    public String getHighestBid() {
+        return highestBid;
+    }
+
+    public void setHighestBid(String highestBid) {
+        this.highestBid = highestBid;
     }
 }

@@ -27,9 +27,9 @@
                     </td>
                     <td width="300px">
                         <br><br>
-                        <strong>Auktionens starttid:</strong> {{ auction.startTime }}<br><br>
-                        <strong>Auktionens sluttid:</strong> {{ auction.endTime}}<br><br>
-                        <strong>Auktionens acceptpris:</strong> {{ auction.buyNowPrice }} kr
+                        <strong>Auktionens starttid:</strong> {{ time(auction.startTime) }}<br><br>
+                        <strong>Auktionens sluttid:</strong> {{time(auction.endTime)}}<br><br>
+                        <strong>Auktionens acceptpris:</strong> {{ auction.buyNowPrice }} kr <br>
                     </td>
                     </tr>
 

@@ -29,27 +29,22 @@ import java.util.Locale;
 public class AuctionListAdapter extends ArrayAdapter<Auction> {
 
     private ArrayList<Auction> auctions;
-    private ArrayList<Bid> bids;
 
-    public AuctionListAdapter(@NonNull Context context, @LayoutRes int resource, @NonNull ArrayList<Auction> auctionObjects, ArrayList<Bid> bidObjects) {
+    public AuctionListAdapter(@NonNull Context context, @LayoutRes int resource, @NonNull ArrayList<Auction> auctionObjects) {
         super(context, resource, auctionObjects);
 
         auctions = auctionObjects;
-        bids = bidObjects;
 
     }
-
 
 
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
 
-        if(convertView == null){
+        if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.auction_list_item, parent, false);
         }
-
-
 
 
         Auction auction = auctions.get(position);
@@ -64,16 +59,12 @@ public class AuctionListAdapter extends ArrayAdapter<Auction> {
         NumberFormat priceFormat = NumberFormat.getNumberInstance(swedish);
         String price = priceFormat.format(auction.getPrice());
         auctionPrice.setText(price);
-        if (bids != null) {
-            for (int i = 0; i < bids.size(); i++) {
-                if (auctions.get(position).getId() == bids.get(i).getBidId()) {
-                    String highestBid = String.valueOf(bids.get(i).getBidPrice());
-                    auctionBid.setText(highestBid);
-                    break;
-                }
-            }
+        if (auction.getHighestBid() == null){
+            auctionBid.setText("Väntar på bud");
         }
-
+        else {
+            auctionBid.setText(auction.getHighestBid());
+        }
 
         Picasso.with(getContext()).load(auction.getImageUrl()).into(auctionImage);
 
