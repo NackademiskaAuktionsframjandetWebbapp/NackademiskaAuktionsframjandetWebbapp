@@ -62,7 +62,7 @@ public class AuctionListAdapter extends ArrayAdapter<Auction> {
         String bidPrice;
         auctionPrice.setText(price + " " + currency);
         if (auction.getHighestBid() == 0){
-            auctionBid.setText("Väntar på bud");
+            auctionBid.setText("Inga bud");
         }
         else {
             bidPrice = priceFormat.format(auction.getHighestBid());

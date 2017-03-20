@@ -29,7 +29,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     public static final String AUCTION = "AUCTION";
     private ArrayList<Auction> auctions = new ArrayList<>();
-    private ArrayList<Category> categories = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,8 +62,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                                         auction.getString("categoryId"), auction.getString("supplierId"),
                                         auction.getString("id")));
                             }
-                            getCategories(requestQueue);
-
                             for (int i = 0; i < auctions.size(); i++) {
                                 getBids(requestQueue, auctions.get(i).getId());
                             }
@@ -137,35 +134,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     }
 
 
-    public void getCategories(RequestQueue requestQueue) {
-
-        JsonArrayRequest requestBid = new JsonArrayRequest("http://nackademiska-api.azurewebsites.net/api/category",
-                new Response.Listener<JSONArray>() {
-
-                    public void onResponse(JSONArray response) {
-                        try {
-                            for (int i = 0; i < response.length(); i++) {
-                                JSONObject category = (JSONObject) response.get(i);
-                                categories.add(new Category(category.getString("id"), category.getString("name")));
-                            }
-                        } catch (
-                                JSONException e)
-
-                        {
-                            e.printStackTrace();
-                        }
-                    }
-                }, new Response.ErrorListener()
-
-        {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                System.out.print("Failed response on bid");
-            }
-        });
-
-        requestQueue.add(requestBid);
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

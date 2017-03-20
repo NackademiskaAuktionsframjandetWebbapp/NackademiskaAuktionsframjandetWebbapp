@@ -6,8 +6,9 @@
     <string name="about_text">Nackademiska Auktionsfrämjandet\n\n\nSkapare: Sam\nThomas\nMicke\nIsabell\nNicole\nGustav\nRobin</string>
     <string name="title_activity_detail">Product</string>
     <string name="button_supplier">Om säljaren</string>
-    <string name="kop_nu">Köp nu:</string>
-    <string name="hogsta_bud">Högsta bud:</string>
+    <string name="buyout">Köp nu:</string>
+    <string name="highest_bid">Högsta bud:</string>
+    <string name="description"><u>Beskrivning:</u></string>
     <string-array name="category_array">
         <item>Alla Kategorier</item>
         <item>Möbler</item>

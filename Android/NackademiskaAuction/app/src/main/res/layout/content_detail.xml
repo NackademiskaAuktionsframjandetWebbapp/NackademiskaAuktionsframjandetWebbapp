@@ -31,15 +31,49 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/auctionBidViewDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="0dp"
+        android:text="100 kr"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/button_seller"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toRightOf="@+id/auctionImageViewDetail"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bidTitleDetail"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
         android:id="@+id/auctionPriceViewDetail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="13dp"
         android:text="100 kr"
         android:textSize="18sp"
-        app:layout_constraintTop_toBottomOf="@+id/auctionNameViewDetail"
-        android:layout_marginLeft="-10dp"
-        app:layout_constraintLeft_toLeftOf="@+id/auctionNameViewDetail" />
+        android:layout_marginTop="-1dp"
+        app:layout_constraintTop_toBottomOf="@+id/buyNowTitleDetail"
+        app:layout_constraintLeft_toRightOf="@+id/auctionImageViewDetail"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/button_seller"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/buyNowTitleDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/buyout"
+        android:textStyle="bold"
+        android:layout_marginTop="21dp"
+        app:layout_constraintTop_toBottomOf="@+id/auctionBidViewDetail"
+        app:layout_constraintLeft_toRightOf="@+id/auctionImageViewDetail"
+        android:layout_marginLeft="8dp" />
 
     <Button
         android:id="@+id/button_seller"
@@ -52,10 +86,54 @@
         android:layout_marginTop="8dp"
         android:text="@string/button_supplier"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.991"
+        app:layout_constraintHorizontal_bias="0.967"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.32999998" />
+        app:layout_constraintVertical_bias="0.4" />
+
+    <TextView
+        android:id="@+id/bidTitleDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="13dp"
+        android:text="@string/highest_bid"
+        android:textStyle="bold"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toRightOf="@+id/auctionImageViewDetail"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/auctionNameViewDetail" />
+
+    <TextView
+        android:id="@+id/auctionDescriptionViewDetail"
+        android:layout_width="288dp"
+        android:layout_height="129dp"
+        android:text="TextView"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.693"
+        app:layout_constraintHorizontal_bias="0.35" />
+
+    <TextView
+        android:id="@+id/auctionDescriptionTitleViewDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/description"
+        android:textStyle="bold"
+        android:layout_marginBottom="12dp"
+        app:layout_constraintBottom_toTopOf="@+id/auctionDescriptionViewDetail"
+        android:layout_marginLeft="36dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/auctionImageViewDetail"
+        app:layout_constraintVertical_bias="0.882" />
 
 </android.support.constraint.ConstraintLayout>
