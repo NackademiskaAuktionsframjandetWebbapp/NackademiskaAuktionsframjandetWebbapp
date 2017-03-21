@@ -16,14 +16,25 @@ angular.module("login").controller("loginController", ["$scope","$location","$ro
 
 
                 if(!loginService.isLoggedIn()){
-                    $scope.text = "Fel användarnamn eller lösenord. vänligen försök igen."
+                    $scope.text = "Fel användarnamn eller lösenord. vänligen försök igen.";
+                    console.log($scope.text)
                 }else{
                     $location.path("/auction/");
-
                 }
             });
         };
-
-
+        $scope.logout = function () {
+            $location.path("/auction/");
+          return loginService.logout()
+        };
+        $scope.isLoggedIn = function () {
+            return loginService.isLoggedIn()
+        };
+        $scope.isAdmin = function () {
+            return loginService.isAdmin()
+        };
+        $scope.customerName = function () {
+            return loginService.customerNameAfterLogin();
+        }
 
     }]);

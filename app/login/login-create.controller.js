@@ -4,7 +4,8 @@ angular.module("login").controller("loginCreateController", ["$scope","$routePar
         $scope.customer = {};
         $scope.roles = ["Administrator", "Customer"];
 
-        $scope.createLogin = function () {
+
+        $scope.createLogin = function (form) {
 
             var newLogin = {
                 firstname: $scope.customer.firstname,
@@ -17,12 +18,16 @@ angular.module("login").controller("loginCreateController", ["$scope","$routePar
                 city: $scope.customer.city,
                 role: $scope.customer.role
 
+
             };
+
 
             loginService.createLogin(newLogin).then(function () {
                 $location.path("/login");
             });
 
         }
+
+
 
     }]);

@@ -5,8 +5,7 @@
     <meta charset="utf-8">
     <base href="/">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link href="css/business-casual.css" rel="stylesheet">
 	<link href="css/style.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Old+Standard+TT" rel="stylesheet">
@@ -43,9 +42,6 @@
 	<script src="app/admin/admin.service.js"></script>
 	<script src="app/admin/admin.controller.js"></script>
 	<script src="app/admin/admin.finished-auctions.controller.js"></script>
-
-
-
 </head>
 
 <body ng-app="app">
@@ -54,15 +50,15 @@
     <div class="address-bar"></div>
 
 	<nav class="navbar navbar-default" role="navigation">
-  		<div class="container-fluid" ng-controller="appController">
+  		<div class="container-fluid" ng-controller="loginController">
     		<div class="collapse navbar-collapse" id="myNavbar">
       			<ul class="nav navbar-nav">
       				<li><a href="/">Hem</a></li>
         			<li><a href="/">Auktionsobjekt</a></li>
          			<li ng-hide="isLoggedIn()"><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Logga in</a></li>
-         			<li ng-show="isLoggedIn()"><a href="#">Välkommen {{firstname}}!</a></li>
+         			<li ng-show="isLoggedIn()"><a>Välkommen {{customerName()}}!</a></li>
          			<li ng-show="isLoggedIn()"><a href="#" ng-click="logout()"><span class="glyphicon glyphicon-log-in"></span> Logga ut</a></li>
-					<li><a href="/admin2">Admin</a></li>
+					<li ng-show="isAdmin()"><a href="/admin">Admin</a></li>
       			</ul>
     		</div>
   		</div>
