@@ -13,13 +13,15 @@ angular.module("login").factory("loginService",["$http", function ($http) {
         },
 
         login: function (user) {
-            return $http.post("http://nackademiska-api.azurewebsites.net/api/account/login", user).then(function (response) {
+            return $http.post("http://nackademiska-api.azurewebsites.net/api/account/login", user).then(function successCallback (response) {
                 isLoggedIn = true;
                 isAdmin = response.data.role == "Administrator";
                 customerIdAfterLogin = response.data.id;
                 customerNameAfterLogin = response.data.firstName + " " + response.data.lastName;
                 history.back();
-            })
+            }, function errorCallback(response) {
+
+            });
 
         },
         logout: function () {
