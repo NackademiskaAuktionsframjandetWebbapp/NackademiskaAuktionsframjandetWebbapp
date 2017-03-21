@@ -12,8 +12,6 @@ angular.module("admin").controller("finishedAuctionsController", ["$routeParams"
                     finishedAuctions[i].supplierPercent = response[i].data.commission;
                     finishedAuctions[i].supplierName = response[i].data.companyName;
                     //finishedAuctions[i].profit = finishedAuctions[i].
-
-                    console.log(finishedAuctions[i].supplierName);
                 }
                 promises = [];
                 angular.forEach(finishedAuctions, function (auction) {
