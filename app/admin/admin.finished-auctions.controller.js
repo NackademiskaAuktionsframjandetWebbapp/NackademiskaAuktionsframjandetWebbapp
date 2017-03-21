@@ -1,5 +1,5 @@
-angular.module("admin").controller("finishedAuctionsController", ["$scope", "$q", "adminService", "supplierService", "auctionService",
-    function ($scope, $q, adminService, supplierService, auctionService) {
+angular.module("admin").controller("finishedAuctionsController", ["$routeParams", "$scope", "$q", "adminService", "supplierService", "auctionService",
+    function ($routeParams, $scope, $q, adminService, supplierService, auctionService) {
         adminService.getFinishedAuctions().then(function (response) {
             finishedAuctions = response.data;
             var promises = [];
@@ -28,6 +28,9 @@ angular.module("admin").controller("finishedAuctionsController", ["$scope", "$q"
 
             });
             $scope.auctions = finishedAuctions;
+            $scope.monthAndYear = $routeParams.monthAndYear;
     }
+
+
 
     )}]);
