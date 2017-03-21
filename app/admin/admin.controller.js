@@ -48,7 +48,13 @@ angular.module("admin").controller("adminController", ["$q", "$scope", "$locatio
             $location.path("/admin/" + monthAndYear)
         };
 
-
+        $scope.wbd = function (id) {
+            angular.forEach(finishedAuctions, function (auction) {
+                if (auction.id == auction){
+                    return auction.winningBidDate;
+                }
+            })
+        };
 
         $scope.totalsByMonth = totalsByMonth;
     });
