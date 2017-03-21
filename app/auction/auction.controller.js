@@ -13,7 +13,6 @@ angular.module("auction").controller("auctionController", ["$scope", "$q", "auct
             $q.all(promises).then(function (response) {
                 for (var i = 0; i<auctions.length; i++){
                     bids = response[i].data;
-                    console.log(bids);
                     if (bids.length > 0){
                         auctions[i].highestBid = bids[bids.length-1].bidPrice;
                     }

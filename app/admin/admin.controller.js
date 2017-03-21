@@ -18,7 +18,6 @@ angular.module("admin").controller("adminController", ["$q", "$scope", "adminSer
                finishedAuctions[i].highestBid = bids[bids.length-1].bidPrice;
                finishedAuctions[i].monthAndYear = finishedAuctions[i].endTime.substring(0,7);
                totalInMonth = {monthAndYear: finishedAuctions[i].endTime.substring(0,7), total: finishedAuctions[i].highestBid};
-               console.log(totalInMonth.total);
                monthExists = false;
                if (totalsByMonth.length == 0){
                    totalsByMonth.push(totalInMonth);
@@ -38,7 +37,6 @@ angular.module("admin").controller("adminController", ["$q", "$scope", "adminSer
 
 
         });
-        console.log(totalsByMonth);
 
 
 

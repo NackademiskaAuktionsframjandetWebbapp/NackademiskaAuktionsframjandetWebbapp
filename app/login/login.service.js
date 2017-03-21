@@ -1,5 +1,6 @@
 angular.module("login").factory("loginService",["$http", function ($http) {
     var isLoggedIn = false;
+    var isAdmin = false;
     var customerIdAfterLogin;
 
 
@@ -13,19 +14,19 @@ angular.module("login").factory("loginService",["$http", function ($http) {
         login: function (user) {
 
             return $http.post("http://nackademiska-api.azurewebsites.net/api/account/login", user).then(function (response) {
-
                 isLoggedIn = true;
+                isAdmin = response.data.role == "Administrator";
                 customerIdAfterLogin = response.data.id;
-
                 history.back();
-
             })
 
         },
         isLoggedIn: function () {
-
             return isLoggedIn;
 
+        },
+        isAdmin: function () {
+            return isAdmin;
         },
         customerIdAfterLogin: function () {
             return customerIdAfterLogin;
