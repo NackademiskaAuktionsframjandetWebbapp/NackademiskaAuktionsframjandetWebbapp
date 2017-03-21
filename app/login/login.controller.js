@@ -11,10 +11,7 @@ angular.module("login").controller("loginController", ["$scope","$location","$ro
             var userinfo = {
                 email: $scope.user.email,
                 password: $scope.user.password};
-
             loginService.login(userinfo).then(function () {
-
-
                 if(!loginService.isLoggedIn()){
                     $scope.text = "Fel användarnamn eller lösenord. vänligen försök igen.";
                     console.log($scope.text)

@@ -4,23 +4,18 @@ angular.module("auction").controller("auctionDetailsController", ["$scope", "$ro
         auctionService.getAuctionByID($routeParams.auctionId).then(function (response) {
             $scope.auction = response.data;
         }, function (errorResponse) {
-
         });
-
         $scope.auctionClickedInDetails = function () {
             $location.path("/");
 
         };
-
         $scope.seeSupplier = function (id) {
             $location.path("/supplier/" + id);
         };
-
         auctionService.getBidsById($routeParams.auctionId).then(function (response) {
             $scope.bids = response.data;
 
         });
-
         $scope.newBid = function(){
 
             if (!loginService.isLoggedIn()) {

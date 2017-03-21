@@ -28,7 +28,7 @@ angular.module("admin").controller("adminController", ["$q", "$scope", "$locatio
                if (totalsByMonth.length == 0){
                    totalsByMonth.push(totalInMonth);
                }else {
-                   for (var x = 0; x<totalsByMonth.length; x++){
+                   for (var x = 0; x < totalsByMonth.length; x++){
                        if (totalInMonth.monthAndYear == totalsByMonth[x].monthAndYear){
                            totalsByMonth[x].total += totalInMonth.total;
                            monthExists = true;

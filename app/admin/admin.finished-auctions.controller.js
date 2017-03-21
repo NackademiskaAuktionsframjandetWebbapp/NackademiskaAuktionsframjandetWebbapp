@@ -1,6 +1,5 @@
 angular.module("admin").controller("finishedAuctionsController", ["$routeParams", "$scope", "$q", "adminService", "supplierService", "auctionService",
     function ($routeParams, $scope, $q, adminService, supplierService, auctionService) {
-        var winningBidDate;
         adminService.getFinishedAuctions().then(function (response) {
             finishedAuctions = response.data;
             var promises = [];
