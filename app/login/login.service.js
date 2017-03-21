@@ -21,6 +21,11 @@ angular.module("login").factory("loginService",["$http", function ($http) {
             })
 
         },
+        logout: function () {
+            isLoggedIn = false;
+            isAdmin = false;
+            customerIdAfterLogin = null;
+        },
         isLoggedIn: function () {
             return isLoggedIn;
 

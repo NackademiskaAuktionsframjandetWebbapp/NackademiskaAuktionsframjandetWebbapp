@@ -22,6 +22,10 @@ angular.module("login").controller("loginController", ["$scope","$location","$ro
                 }
             });
         };
+        $scope.logout = function () {
+            $location.path("/auction/");
+          return loginService.logout()
+        };
         $scope.isLoggedIn = function () {
             return loginService.isLoggedIn()
         };
