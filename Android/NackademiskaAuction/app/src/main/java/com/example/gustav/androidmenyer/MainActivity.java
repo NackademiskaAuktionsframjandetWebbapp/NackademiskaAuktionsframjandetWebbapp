@@ -112,6 +112,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                             for (int i = 0; i < auctions.size(); i++) {
                                 if (auctions.get(i).getId() == ID) {
                                     auctions.get(i).setHighestBid(bid.getDouble("bidPrice"));
+                                    break;
                                 }
                             }
                         } catch (

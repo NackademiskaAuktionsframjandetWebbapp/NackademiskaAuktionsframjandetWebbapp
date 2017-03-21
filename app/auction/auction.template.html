@@ -1,0 +1,40 @@
+<div class="col-sm-8 text-left">
+    <div class="form-group">
+
+        <h1>
+            <form class="font">
+                <input type="text" ng-model="query" placeholder="Sök efter auktionsobjekt">
+                i
+                <select ng-model="categorySelected" class="input-small" ng-options="category.name for category in categories">
+                    <option value="">alla kategorier</option>
+                </select>
+            </form>
+        </h1>
+
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-click="auctionClicked(auction.id)" ng-repeat="auction in auctions | filter: {categoryId: categorySelected.id, name: query} | activeAuctions ">
+                    <td>
+                        <strong>{{ auction.name }}</strong><br><br>
+                        <img src="{{ auction.imageUrl }}"  width="200px">
+                    </td>
+                    <td width="300px">
+                        <br><br>
+                        <strong>Auktionens starttid:</strong> {{ auction.startTime | date: 'yyyy-MM-dd HH:mm:ss' }}<br><br>
+                        <strong>Auktionens sluttid:</strong> {{auction.endTime | date: 'yyyy-MM-dd HH:mm:ss'}}<br><br>
+                        <strong>Auktionens acceptpris:</strong> {{ auction.buyNowPrice }} kr <br>
+                    </td>
+                    </tr>
+
+            </tbody>
+        </table>
+
+    </div>
+</div>
