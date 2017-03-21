@@ -4,11 +4,19 @@
     <string name="action_about">About</string>
     <string name="title_activity_about">About</string>
     <string name="about_text">Nackademiska Auktionsfrämjandet\n\n\nSkapare: Sam\nThomas\nMicke\nIsabell\nNicole\nGustav\nRobin</string>
-    <string name="title_activity_detail">Product</string>
+    <string name="title_activity_detail">Auctionsobjekt</string>
+    <string name="title_supplier_detail">Leverantör</string>
     <string name="button_supplier">Om säljaren</string>
     <string name="buyout">Köp nu:</string>
     <string name="highest_bid">Högsta bud:</string>
     <string name="description"><u>Beskrivning:</u></string>
+    <string name="supplier"><u>Leverantör:</u></string>
+    <string name="company_name">Företagsnamn:</string>
+    <string name="phone">Telefonnummer:</string>
+    <string name="mail">E-Post:</string>
+    <string name="address">Adress:</string>
+    <string name="postal_code">Postkod:</string>
+    <string name="city">Stad:</string>
     <string-array name="category_array">
         <item>Alla Kategorier</item>
         <item>Möbler</item>
@@ -18,4 +26,5 @@
         <item>Smycken</item>
         <item>Badrum</item>
     </string-array>
+    <string name="title_activity_supplier2">Supplier2Activity</string>
 </resources>

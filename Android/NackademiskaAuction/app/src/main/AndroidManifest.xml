@@ -32,18 +32,12 @@
         </activity>
         <activity
             android:name=".DetailActivity"
-            android:label="@string/title_activity_detail"
+            android:label="@string/title_supplier_detail"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.gustav.androidmenyer.MainActivity" />
-        </activity>
-        <activity
-            android:name=".SupplierActivity"
-            android:label="Supplier"
-            android:parentActivityName=".DetailActivity">
-
         </activity>
     </application>
 
