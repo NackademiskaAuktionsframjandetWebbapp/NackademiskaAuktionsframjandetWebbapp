@@ -1,5 +1,6 @@
 angular.module("admin").controller("finishedAuctionsController", ["$routeParams", "$scope", "$q", "adminService", "supplierService", "auctionService",
     function ($routeParams, $scope, $q, adminService, supplierService, auctionService) {
+        var winningBidDate;
         adminService.getFinishedAuctions().then(function (response) {
             finishedAuctions = response.data;
             var promises = [];
@@ -11,6 +12,7 @@ angular.module("admin").controller("finishedAuctionsController", ["$routeParams"
                     finishedAuctions[i].supplierPercent = response[i].data.commission;
                     finishedAuctions[i].supplierName = response[i].data.companyName;
                     //finishedAuctions[i].profit = finishedAuctions[i].
+
                     console.log(finishedAuctions[i].supplierName);
                 }
                 promises = [];
@@ -22,6 +24,7 @@ angular.module("admin").controller("finishedAuctionsController", ["$routeParams"
                         bids = response[i].data;
                         finishedAuctions[i].highestBid = bids[bids.length-1].bidPrice;
                         finishedAuctions[i].profit = (finishedAuctions[i].highestBid * (finishedAuctions[i].supplierPercent));
+                        finishedAuctions[i].winningBidDate = bids[bids.length-1].dateTime;
                     }
                 })
 
